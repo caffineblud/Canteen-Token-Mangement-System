@@ -1,36 +1,105 @@
-# Canteen Token Management System (Group 10)
+<div align="center">
 
-Token generation, counter order queue and daily sales tracking for a canteen.
-Static web app (HTML + CSS + JS). No build step, no dependencies.
+# 🍽️ Canteen Token Management System
 
-## Modules
-| # | Module | Where |
-|---|--------|-------|
-| 1 | Menu and price list | **Menu** tab (admin can add/edit/delete/mark sold out) |
-| 2 | Token generation | **Order** tab → "Pay & generate token" (T-001, T-002… resets daily) |
-| 3 | Order queue for counter | **Queue** tab (FIFO: Queued → Preparing → Ready → Served) |
-| 4 | Billing | Cart totals, discount (admin), 5% GST, printable slip |
-| 5 | Daily sales report | **Sales** tab: KPIs, charts, order table, CSV export |
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-Semantic-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Grid_%26_Variables-1572B6?style=flat-square&logo=css3&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0-FF8C00?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-22c55e?style=flat-square)
 
-Admin login (demo): `admin` / `admin123`. This is client-side only, so it is a convenience lock for a demo, not real security.
-Data is stored in the browser (localStorage). Open the app in two tabs to see the queue update live.
+> A modern, responsive web application designed for college and corporate canteens — featuring categorized menu browsing, FIFO token generation, cross-tab live queue syncing, automated billing with GST calculations, and daily sales analytics.
 
-## Deploy
+[![GitHub](https://img.shields.io/badge/GitHub-caffineblud-181717?style=flat-square&logo=github)](https://github.com/caffineblud)
 
-### Netlify (drag and drop, fastest)
-1. Go to https://app.netlify.com/drop
-2. Drag this whole folder onto the page. Done, you get a live URL.
+</div>
 
-### Vercel
-Option A, CLI:
+---
+
+## ✨ Features
+
+| Module | Description |
+|---|---|
+| 📋 **Menu & Price List** | Categorized items (Snacks, Meals, Beverages, Desserts), search filtering, and admin item toggle/restock |
+| 🎟️ **Token Generation** | Daily resetting sequence numbers (`T-001`, `T-002`, etc.) with instant slip generation and print support |
+| 🔄 **Order Queue Board** | FIFO queue flow (`Queued` → `Preparing` → `Ready` → `Served`) with real-time multi-tab sync via `localStorage` |
+| 💳 **Billing & Taxes** | Automated subtotal, custom admin discount percentages, 5% GST computation, and multiple payment modes (Cash, UPI, Card) |
+| 📊 **Daily Sales Analytics** | Revenue KPIs, item breakdown charts, peak order hour distribution, and CSV report export |
+| 🌙 **Dark/Light Theme** | System-aware theme switcher with persistent preference storage |
+
+---
+
+## 🗂️ Project Structure
+
 ```
-npm i -g vercel
+canteen-token-system/
+│
+├── index.html         # 🚀 Main entry point — UI structure, dialogs, and views
+├── app.js             # ⚙️ Core business logic, token engine, state management, and UI rendering
+├── styles.css         # 🎨 Modern CSS styles with CSS variables and dark mode support
+└── README.md          # 📖 Project documentation
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Language** | Vanilla JavaScript (ES6+) | Core application logic, routing, and DOM rendering |
+| **Styling** | Modern CSS3 (Grid, Flexbox, Variables) | Responsive layout and dynamic dark/light themes |
+| **Storage** | Browser `localStorage` & `sessionStorage` | Persistent menu/orders state and admin session management |
+| **Standard Lib** | `window.print`, `Blob`, `URL.createObjectURL` | Token slip printing and CSV report downloads |
+
+---
+
+## ⚙️ Setup & Installation
+
+Since this is a client-side web application, no complex backend server setup or package installations are required!
+
+```bash
+git clone https://github.com/caffineblud/canteen-token-system.git
 cd canteen-token-system
-vercel --prod
 ```
-(Answer the prompts: no framework, output directory `.`)
 
-Option B, GitHub: push this folder to a repo, then import it at https://vercel.com/new. Framework preset: **Other**. Leave build command empty.
+- **Run Locally:** Simply open `index.html` in any modern web browser.
+- **Recommended:** Use a local development server like *Live Server* in VS Code for the best live-reloading experience.
 
-## Run locally
-Open `index.html` in a browser, or run `npx serve .`
+---
+
+## 🔐 Admin Access
+
+Certain administrative features (such as editing menu items, controlling the counter queue, and viewing sales analytics) require authentication.
+
+- **Action:** Click **"Admin login"** in the top navigation bar.
+- **Demo Credentials:**
+  - **Username:** `admin`
+  - **Password:** `admin123`
+
+---
+
+## 💾 Storage & Real-Time Syncing
+
+- All application data is safely stored in the browser's `localStorage` under the key `canteen.v1`.
+- **Cross-Tab Syncing:** Open `index.html` in two separate browser tabs (e.g., Tab 1 as the Customer Ordering view, Tab 2 as the Counter Queue) to watch orders sync live instantly across tabs.
+- **Data Export & Reset:** Admins can reset daily orders or export the entire sales ledger as a formatted `.csv` file anytime from the Sales report tab.
+
+---
+
+## 👨‍💻 Author & Contributors
+
+<div align="center">
+
+**Group 10**
+
+| Name | GitHub / Profile |
+|---|---|
+| **Yash Kumar Singh** | [![GitHub](https://img.shields.io/badge/GitHub-caffineblud-181717?style=flat-square&logo=github)](https://github.com/caffineblud) |
+| **Md Anis Haidar** | — |
+| **Piyush Kumar** | — |
+| **Nikhil Kumar** | — |
+
+⭐ If you like this project, consider giving it a star.
+
+</div>
